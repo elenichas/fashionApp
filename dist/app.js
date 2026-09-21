@@ -1,30 +1,16 @@
 const looks = [
   {
-    number: "LOOK 01",
+    number: "LIVE RETAILER EDIT",
     name: "Central Perk polish",
     image: "./assets/look-one.png",
-    total: "£167.94",
+    total: "£210.48",
     items: [
-      ["H&M", "Rib-knit mock-neck jumper", "£24.99", "crop-knit", "Clothing"],
-      ["Zara", "Check pleated mini skirt", "£35.99", "crop-skirt", "Clothing"],
-      ["Mango", "Leather-effect penny loafers", "£49.99", "crop-shoes", "Shoes"],
-      ["Accessorize", "Small hoop earrings", "£12.00", "crop-jewellery", "Accessories"],
-      ["Monki", "Sheer 30 denier tights", "£8.99", "crop-tights", "Clothing"],
-      ["& Other Stories", "Buckled shoulder bag", "£35.98", "crop-bag", "Accessories"]
-    ]
-  },
-  {
-    number: "LOOK 02",
-    name: "The apartment edit",
-    image: "./assets/look-two.png",
-    total: "£181.45",
-    items: [
-      ["Uniqlo", "Soft cropped cardigan", "£29.90", "crop-knit", "Clothing"],
-      ["COS", "A-line mini skirt", "£55.00", "crop-skirt", "Clothing"],
-      ["M&S", "Leather Mary Jane shoes", "£45.00", "crop-shoes", "Shoes"],
-      ["Orelia", "Fine pendant necklace", "£18.00", "crop-jewellery", "Accessories"],
-      ["Calzedonia", "Sheer black tights", "£9.99", "crop-tights", "Clothing"],
-      ["Pull&Bear", "Minimal shoulder bag", "£23.56", "crop-bag", "Accessories"]
+      ["H&M", "Rib-knit wool jumper", "£74.99", "crop-knit", "Clothing", "https://www2.hm.com/en_gb/productpage.1316745003.html"],
+      ["M&S", "Micro check mini skirt", "£28.00", "crop-skirt", "Clothing", "https://www.marksandspencer.com/micro-check-mini-skirt/p/clp61223700"],
+      ["M&S", "Leather trim block heel loafers", "£60.00", "crop-shoes", "Shoes", "https://www.marksandspencer.com/leather-trim-block-heel-loafers/p/clp60774616"],
+      ["Accessorize", "14ct gold-plated molten hoops", "£18.00", "crop-jewellery", "Accessories", "https://www.accessorize.com/uk/14ct-gold-plated-molten-hoop-earrings-1001018645.html"],
+      ["Calzedonia", "Matt invisible 30 denier tights", "£17.99", "crop-tights", "Clothing", "https://www.calzedonia.com/uk/product/matt_invisible_30_denier_semi-opaque_tights-MIC058.html?dwvar_MIC058_Z_COL_COLLD=019"],
+      ["Next", "Burgundy gloss shoulder bag", "£11.50", "crop-bag", "Accessories", "https://www.next.co.uk/style/su897453/w24065"]
     ]
   }
 ];
@@ -52,9 +38,9 @@ function renderLook(index) {
       </button>
       <div class="product-shot ${item[3]}"><img src="${look.image}" alt="${item[1]}" /></div>
       <div class="product-info">
-        <span class="brand-name">${item[0]}</span>
+        <span class="brand-name">${item[0]}</span><span class="live-status">Available</span>
         <h4>${item[1]}</h4>
-        <div class="price-row"><strong>${item[2]}</strong><a href="#" data-product="${item[1]}">View item ↗</a></div>
+        <div class="price-row"><strong>${item[2]}</strong><a href="${item[5]}" target="_blank" rel="noopener noreferrer">Shop now ↗</a></div>
       </div>
     </article>
   `).join("");
@@ -67,6 +53,10 @@ document.querySelector("#style-search").addEventListener("submit", (event) => {
   const overlay = document.querySelector("#loading");
   const query = document.querySelector("#character-query").value.trim();
   if (!query) return showToast("Tell us which character you have in mind.");
+  if (!/rachel|friends/i.test(query)) {
+    showToast("Live shopping is currently connected for the Rachel Green proof of concept.");
+    return;
+  }
   overlay.hidden = false;
   const details = ["Reading silhouettes, colours and styling cues", "Checking prices and availability", "Building your closest shoppable match"];
   let step = 0;
@@ -75,11 +65,10 @@ document.querySelector("#style-search").addEventListener("submit", (event) => {
   setTimeout(() => {
     clearInterval(interval);
     overlay.hidden = true;
-    const character = query.split(/from|in|—|,/i)[0].trim();
-    document.querySelector("#results-title").textContent = `${character || "Your character"}, decoded`;
-    document.querySelector("#results-copy").textContent = "We found the strongest visual signals and matched them to pieces currently available within your budget.";
+    document.querySelector("#results-title").textContent = "Rachel, season one";
+    document.querySelector("#results-copy").textContent = "Six visually matched pieces available from UK retailers now, all within your £250 budget.";
     document.querySelector("#results").scrollIntoView({ behavior: "smooth" });
-    showToast("18 available pieces matched to your search.");
+    showToast("6 live products verified and matched to your search.");
   }, 2200);
 });
 
@@ -104,12 +93,6 @@ document.querySelectorAll(".filter-chip").forEach(button => button.addEventListe
   });
 }));
 
-document.querySelector("#view-alt").addEventListener("click", () => {
-  currentLook = (currentLook + 1) % looks.length;
-  renderLook(currentLook);
-  showToast(currentLook ? "Showing a softer monochrome match." : "Back to the closest overall match.");
-});
-
 document.querySelector("#save-search").addEventListener("click", (event) => {
   event.currentTarget.classList.toggle("saved");
   const saved = event.currentTarget.classList.contains("saved");
@@ -123,11 +106,6 @@ document.addEventListener("click", (event) => {
   if (heart) {
     heart.classList.toggle("saved");
     showToast(heart.classList.contains("saved") ? "Item saved." : "Item removed.");
-  }
-  const product = event.target.closest("[data-product]");
-  if (product) {
-    event.preventDefault();
-    showToast(`${product.dataset.product} is a demo listing in this prototype.`);
   }
   const action = event.target.closest("[data-toast]");
   if (action) showToast(action.dataset.toast);

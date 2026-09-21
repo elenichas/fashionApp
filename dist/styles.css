@@ -88,6 +88,7 @@ h2 { font-family: "Instrument Serif", serif; font-size: clamp(2.6rem, 5vw, 4.4re
 .product-card:nth-child(n+4) { border-bottom: 0; }
 .product-card:hover { background: #f7f6f2; }
 .product-shot { height: 185px; overflow: hidden; background: #ebeae7; position: relative; }
+.product-shot::after { content: "Match preview"; position: absolute; left: 7px; bottom: 7px; background: rgba(251,250,246,.9); padding: 4px 6px; font: 500 .54rem "DM Mono", monospace; text-transform: uppercase; letter-spacing: .05em; }
 .product-shot img { position: absolute; width: 250%; height: 250%; max-width: none; object-fit: cover; transform-origin: top left; }
 .crop-knit img { left: -8%; top: -3%; }
 .crop-skirt img { left: -5%; top: -102%; }
@@ -103,11 +104,14 @@ h2 { font-family: "Instrument Serif", serif; font-size: clamp(2.6rem, 5vw, 4.4re
 .product-info h4 { font-weight: 600; font-size: .83rem; margin: 6px 0 9px; overflow: hidden; white-space: nowrap; text-overflow: ellipsis; }
 .price-row { display: flex; justify-content: space-between; align-items: center; }
 .price-row strong { font: 500 .84rem "DM Mono", monospace; }
-.price-row a { color: var(--ink); font-size: .7rem; text-underline-offset: 3px; }
+.price-row a { color: var(--ink); font-size: .7rem; text-underline-offset: 3px; font-weight: 700; }
 .panel-footer { min-height: 56px; padding: 0 20px; display: flex; align-items: center; justify-content: space-between; border-top: 1px solid var(--line); font-size: .7rem; color: var(--muted); }
 .panel-footer i { display: inline-block; width: 7px; height: 7px; background: #4c8b5c; border-radius: 50%; margin-right: 5px; }
 .panel-footer button { background: transparent; border: 0; font-weight: 700; color: var(--ink); cursor: pointer; }
 .panel-footer button span { margin-left: 6px; }
+.price-note { text-align: right; }
+.live-status { display: inline-flex; align-items: center; gap: 5px; color: #40734c; font: 500 .62rem "DM Mono", monospace; text-transform: uppercase; letter-spacing: .05em; margin-left: 7px; }
+.live-status::before { content: ""; width: 6px; height: 6px; border-radius: 50%; background: #4c8b5c; }
 
 .loading-overlay { position: fixed; inset: 0; background: rgba(23,33,29,.76); backdrop-filter: blur(6px); z-index: 50; display: grid; place-items: center; padding: 20px; }
 .loading-overlay[hidden] { display: none; }
@@ -155,6 +159,7 @@ h2 { font-family: "Instrument Serif", serif; font-size: clamp(2.6rem, 5vw, 4.4re
   .product-shot { height: 155px; }
   .shop-panel-head { padding: 18px; }
   .panel-footer { align-items: flex-start; flex-direction: column; justify-content: center; gap: 8px; padding-block: 12px; }
+  .price-note { text-align: left; }
   .loading-card { padding: 34px 22px; }
 }
 
