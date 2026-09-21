@@ -96,6 +96,12 @@ h2 { font-family: "Instrument Serif", serif; font-size: clamp(2.6rem, 5vw, 4.4re
 .crop-bag img { left: -145%; top: -25%; }
 .crop-jewellery img { left: -151%; top: 0; }
 .crop-tights img { left: -145%; top: -110%; }
+.crop-blazer img { left: 0; top: -3%; }
+.crop-blouse img { left: -142%; top: -3%; }
+.crop-trousers img { left: -72%; top: -86%; }
+.crop-slingbacks img { left: 0; top: -103%; }
+.crop-sunglasses img { left: -148%; top: -100%; }
+.crop-earrings img { left: -146%; top: -154%; }
 .product-card button.heart { position: absolute; top: 22px; right: 22px; height: 30px; width: 30px; border-radius: 50%; border: 0; background: rgba(255,255,255,.9); display: grid; place-items: center; cursor: pointer; z-index: 2; }
 .heart svg { height: 16px; width: 16px; fill: none; stroke: currentColor; stroke-width: 1.7; }
 .heart.saved svg { fill: var(--orange); stroke: var(--orange); }
