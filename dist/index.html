@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#f4f0e8" />
+    <meta name="description" content="Describe an iconic fictional character and discover shoppable outfits inspired by their style." />
+    <title>Scene Stealer — Character-inspired style, ready to shop</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Instrument+Serif:ital@0;1&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%231e2c26'/%3E%3Cpath d='M18 22h28l-4 27H22z' fill='%23e64b2f'/%3E%3Cpath d='M25 24c0-10 14-10 14 0' fill='none' stroke='%23f4f0e8' stroke-width='4'/%3E%3C/svg%3E" />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <a class="brand" href="#" aria-label="Scene Stealer home">
+        <span class="brand-mark" aria-hidden="true">S</span>
+        <span>Scene Stealer</span>
+      </a>
+      <nav aria-label="Primary navigation">
+        <button class="nav-link active" type="button">Discover</button>
+        <button class="nav-link" type="button" data-toast="Your saved looks will live here.">Saved <span class="saved-count">0</span></button>
+      </nav>
+      <button class="profile" type="button" aria-label="Open profile" data-toast="Profile settings are coming next.">EK</button>
+    </header>
+
+    <main>
+      <section class="search-stage" aria-labelledby="search-title">
+        <div class="eyebrow"><span></span> Your personal costume department</div>
+        <h1 id="search-title">Who do you want to<br /><em>dress like?</em></h1>
+        <p class="intro">Name a fictional character, season or scene. We’ll decode the look and find pieces you can buy now.</p>
+
+        <form class="search-box" id="style-search">
+          <label class="sr-only" for="character-query">Describe a character or look</label>
+          <div class="search-input-row">
+            <svg aria-hidden="true" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"></circle><path d="m16 16 4 4"></path></svg>
+            <textarea id="character-query" rows="2">Rachel Green from Friends, season 1 — the plaid skirt and knitwear looks</textarea>
+            <button type="submit">Find the look <span aria-hidden="true">↗</span></button>
+          </div>
+          <div class="search-meta">
+            <span>Try a scene, episode or mood</span>
+            <div class="budget-control">
+              <label for="budget">Max budget</label>
+              <select id="budget">
+                <option>£150</option>
+                <option selected>£250</option>
+                <option>£400</option>
+                <option>No limit</option>
+              </select>
+            </div>
+          </div>
+        </form>
+
+        <div class="quick-prompts" aria-label="Example searches">
+          <span>Try:</span>
+          <button type="button">Cher in Clueless</button>
+          <button type="button">Joan in Mad Men</button>
+          <button type="button">Villanelle in Killing Eve</button>
+        </div>
+      </section>
+
+      <section class="results" id="results" aria-labelledby="results-title">
+        <div class="results-heading">
+          <div>
+            <div class="eyebrow"><span></span> Style decoded</div>
+            <h2 id="results-title">Rachel, season one</h2>
+            <p id="results-copy">Polished prep meets coffee-shop casual: fitted knits, neat minis and just enough ’90s attitude.</p>
+          </div>
+          <div class="result-actions">
+            <button class="icon-button" type="button" id="filter-button" aria-expanded="false" aria-controls="filters">
+              <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M4 7h16M7 12h10M10 17h4"></path></svg>
+              Refine
+            </button>
+            <button class="icon-button" type="button" id="save-search">
+              <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M6 4h12v17l-6-4-6 4z"></path></svg>
+              Save search
+            </button>
+          </div>
+        </div>
+
+        <div class="filters" id="filters" hidden>
+          <div><span>Category</span><button class="filter-chip active" type="button">All</button><button class="filter-chip" type="button">Clothing</button><button class="filter-chip" type="button">Shoes</button><button class="filter-chip" type="button">Accessories</button></div>
+          <div><span>Retailer</span><button class="filter-chip active" type="button">Any retailer</button><button class="filter-chip" type="button">H&amp;M</button><button class="filter-chip" type="button">Zara</button><button class="filter-chip" type="button">Mango</button></div>
+        </div>
+
+        <div class="style-signals" aria-label="Style characteristics">
+          <span>Fitted knits</span><span>Mini silhouettes</span><span>Tartan</span><span>Rich neutrals</span><span>’90s prep</span>
+        </div>
+
+        <div class="look-layout">
+          <article class="reference-card">
+            <div class="reference-image">
+              <img src="./assets/reference-look.png" alt="Original 1990s-inspired outfit with cream knit and plaid skirt" />
+              <span class="match-badge">Style reference</span>
+            </div>
+            <div class="reference-caption">
+              <p>The brief</p>
+              <h3>Cosy knit + tartan mini</h3>
+              <span>Inspired by early-season coffee-house looks</span>
+            </div>
+          </article>
+
+          <div class="shop-panel">
+            <div class="shop-panel-head">
+              <div><span class="mono">LOOK 01</span><h3>Central Perk polish</h3></div>
+              <div class="total"><span>Whole look</span><strong>£167.94</strong></div>
+            </div>
+            <div class="product-grid" id="product-grid"></div>
+            <div class="panel-footer">
+              <span><i></i> Stock checked just now</span>
+              <button type="button" id="view-alt">See another match <span aria-hidden="true">→</span></button>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <div class="loading-overlay" id="loading" role="status" aria-live="polite" hidden>
+      <div class="loading-card">
+        <div class="hanger" aria-hidden="true"><span></span></div>
+        <p class="mono">SEARCHING THE WARDROBE</p>
+        <h2>Decoding the character’s style…</h2>
+        <div class="progress"><span></span></div>
+        <p id="loading-detail">Finding available pieces from trusted retailers</p>
+      </div>
+    </div>
+
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+    <script src="./app.js"></script>
+  </body>
+</html>
