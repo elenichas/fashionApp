@@ -1,47 +1,45 @@
 const characters = {
   rachel: {
-    title: "Rachel, season one",
-    copy: "Six visually matched pieces available from UK retailers now, all within your £250 budget.",
-    signals: ["Fitted knits", "Mini silhouettes", "Tartan", "Rich neutrals", "’90s prep"],
-    referenceImage: "./assets/reference-look.png",
-    referenceAlt: "Original 1990s-inspired outfit with cream knit and plaid skirt",
-    brief: "Cosy knit + tartan mini",
-    briefCopy: "Inspired by early-season coffee-house looks",
+    title: "Rachel Green, the tartan mini",
+    copy: "An official episode scene matched to four genuine products available from UK retailers now.",
+    signals: ["Cream roll-neck", "Tartan mini", "Knee-high socks", "Flat loafers", "’90s prep"],
+    referenceImage: "https://i.ytimg.com/vi/4c8ORaaVuIw/maxresdefault.jpg",
+    referenceAlt: "Jennifer Aniston as Rachel Green wearing a cream roll-neck, tartan mini skirt and white knee-high socks in Friends",
+    brief: "The monkey-search tartan look",
+    briefCopy: "Season 1, Episode 19 — The One Where the Monkey Gets Away",
+    sourceUrl: "https://www.youtube.com/watch?v=4c8ORaaVuIw",
     look: {
-      number: "LIVE RETAILER EDIT",
-      name: "Central Perk polish",
-      image: "./assets/look-one.png",
-      total: "£210.48",
+      number: "REAL SCENE · LIVE PRODUCTS",
+      name: "Shop the scene",
+      image: null,
+      total: "£121.50",
       items: [
-        ["H&M", "Rib-knit wool jumper", "£74.99", "crop-knit", "Clothing", "https://www2.hm.com/en_gb/productpage.1316745003.html"],
-        ["M&S", "Micro check mini skirt", "£28.00", "crop-skirt", "Clothing", "https://www.marksandspencer.com/micro-check-mini-skirt/p/clp61223700"],
-        ["M&S", "Leather trim block heel loafers", "£60.00", "crop-shoes", "Shoes", "https://www.marksandspencer.com/leather-trim-block-heel-loafers/p/clp60774616"],
-        ["Accessorize", "14ct gold-plated molten hoops", "£18.00", "crop-jewellery", "Accessories", "https://www.accessorize.com/uk/14ct-gold-plated-molten-hoop-earrings-1001018645.html"],
-        ["Calzedonia", "Matt invisible 30 denier tights", "£17.99", "crop-tights", "Clothing", "https://www.calzedonia.com/uk/product/matt_invisible_30_denier_semi-opaque_tights-MIC058.html?dwvar_MIC058_Z_COL_COLLD=019"],
-        ["Next", "Burgundy gloss shoulder bag", "£11.50", "crop-bag", "Accessories", "https://www.next.co.uk/style/su897453/w24065"]
+        ["4th & Reckless at ASOS", "Cropped cable roll-neck jumper in cream", "£38.25", "real-product", "Clothing", "https://www.asos.com/4th-reckless/4th-reckless-cotton-blend-high-neck-cropped-roll-neck-cable-knit-jumper-in-cream/prd/209000755", "https://images.asos-media.com/products/4th-reckless-cotton-blend-high-neck-cropped-roll-neck-cable-knit-jumper-in-cream/209000755-1-cream?wid=513&fit=constrain", "Closest knit + neckline"],
+        ["Motel at ASOS", "Cida tartan mini skirt in red check", "£34.00", "real-product", "Clothing", "https://www.asos.com/motel/motel-cida-tartan-mini-skirt-in-red-check/prd/207310487", "https://images.asos-media.com/products/motel-cida-tartan-mini-skirt-in-red-check/207310487-1-redcheck?wid=513&fit=constrain", "Closest pattern + silhouette"],
+        ["ASOS DESIGN", "Rib knee-high socks in white", "£4.25", "real-product", "Accessories", "https://www.asos.com/asos-design/asos-design-rib-knee-high-socks-in-white/prd/204907228", "https://images.asos-media.com/products/asos-design-rib-knee-high-socks-in-white/204907228-1-white?wid=513&fit=constrain", "Signature styling detail"],
+        ["Topshop at ASOS", "Charlie leather flat loafers in black suede", "£45.00", "real-product", "Shoes", "https://www.asos.com/topshop/topshop-charlie-real-leather-flat-loafer-in-black-suede/prd/209773819", "https://images.asos-media.com/products/topshop-charlie-real-leather-flat-loafer-in-black-suede/209773819-1-blacksuede?wid=513&fit=constrain", "Closest shoe shape"]
       ]
     }
   },
   susie: {
-    title: "Susie Glass, power tailoring",
-    copy: "Six sharp, shoppable matches from UK retailers — a complete outfit under your £250 budget.",
-    signals: ["Sculpted tailoring", "Satin", "Monochrome", "Statement gold", "Power dressing"],
-    referenceImage: "./assets/susie-reference.png",
-    referenceAlt: "Original crime-drama-inspired power look with black tailoring and ivory satin",
-    brief: "Boardroom power play",
-    briefCopy: "Inspired by Susie’s commanding country-estate tailoring",
+    title: "Susie Glass, the burgundy suit",
+    copy: "An official scene still matched to four genuine products available from UK retailers now.",
+    signals: ["Burgundy velvet", "Strong shoulders", "Tonal dressing", "Layered gold", "Power tailoring"],
+    referenceImage: "https://dnm.nflximg.net/api/v6/BvVbc2Wxr2w6QuoANoSpJKEIWjQ/AAAAQU4v_NFz4bEJIt1vaulZDOQ-JQGgEQqrFjuhEpYJysylWmnermZEd0fVHDG_S46rWnTfWWBXZDyfwYuMCfVT24v88QnzdhasatloFZmXl33LwZjUcxBl-olVVOwbXKF0QDehu7dKlV71Y3N2yH6EblkZG40.jpg?r=a71",
+    referenceAlt: "Kaya Scodelario as Susie Glass wearing a burgundy velvet suit in The Gentlemen",
+    brief: "Burgundy velvet authority",
+    briefCopy: "Season 1 scene — Susie questions a guest in an ornate drawing room",
+    sourceUrl: "https://www.netflix.com/tudum/articles/the-gentlemen-season-1-ending-explained",
     look: {
-      number: "LIVE RETAILER EDIT",
-      name: "The Glass effect",
-      image: "./assets/susie-look.png",
-      total: "£240.97",
+      number: "REAL SCENE · LIVE PRODUCTS",
+      name: "Shop the scene",
+      image: null,
+      total: "£130.98",
       items: [
-        ["H&M", "Satin blouse", "£27.99", "crop-blouse", "Clothing", "https://www2.hm.com/en_gb/productpage.1204191001.html"],
-        ["H&M", "Tapered-waist blazer", "£64.99", "crop-blazer", "Clothing", "https://www2.hm.com/en_gb/productpage.1202258001.html"],
-        ["COS", "Jersey wide-leg trousers", "£75.00", "crop-trousers", "Clothing", "https://www.cos.com/en-gb/women/womenswear/trousers/wideleg/product/jersey-wide-leg-trousers-black-1299415002"],
-        ["Zara", "Pointed slingback heels", "£35.99", "crop-slingbacks", "Shoes", "https://www.zara.com/uk/en/pointed-toe-slingback-heels-p12204810.html"],
-        ["H&M", "Black sunglasses", "£7.00", "crop-sunglasses", "Accessories", "https://www2.hm.com/en_gb/productpage.0916335008.html"],
-        ["Accessorize", "14ct gold-plated molten hoops", "£18.00", "crop-earrings", "Accessories", "https://www.accessorize.com/uk/14ct-gold-plated-molten-hoop-earrings-1001018645.html"]
+        ["Mango at ASOS", "Velvet co-ord blazer in dark red", "£91.00", "real-product", "Clothing", "https://www.asos.com/mango/mango-velvet-co-ord-blazer-in-dark-red/prd/205718048", "https://images.asos-media.com/products/mango-velvet-co-ord-blazer-in-dark-red/205718048-1-darkred?wid=513&fit=constrain", "Closest fabric + silhouette"],
+        ["Vero Moda at ASOS", "Tailored velvet wide-leg trousers", "£11.99", "real-product", "Clothing", "https://www.asos.com/vero-moda/vero-moda-seam-front-tailored-velvet-trouser-co-ord-in-burgundy/prd/209351006", "https://images.asos-media.com/products/vero-moda-seam-front-tailored-velvet-trouser-co-ord-in-burgundy/209351006-1-winetasting?wid=513&fit=constrain", "Closest colour + texture"],
+        ["Topshop at ASOS", "Velvet long-sleeve top in burgundy", "£8.99", "real-product", "Clothing", "https://www.asos.com/topshop/topshop-velvet-off-shoulder-tunic-long-sleeve-top-in-burgundy/prd/209864398", "https://images.asos-media.com/products/topshop-velvet-off-shoulder-tunic-long-sleeve-top-in-burgundy/209864398-1-plum?wid=513&fit=constrain", "Tonal layer"],
+        ["Accessorize", "Gold-plated celestial layered necklace", "£19.00", "real-product", "Accessories", "https://www.accessorize.com/uk/14ct-gold-plated-celestial-pendant-layered-necklace-1000045532.html", "https://www.accessorize.com/dw/image/v2/BDLV_PRD/on/demandware.static/-/Sites-accessorize-master-catalog/default/dwf05d2aad/images/large/01_41000360021_1.jpg?sw=663&sh=848&sm=cut", "Accessory match"]
       ]
     }
   }
@@ -62,15 +60,17 @@ function renderLook(look) {
   document.querySelector(".shop-panel .mono").textContent = look.number;
   document.querySelector(".shop-panel-head h3").textContent = look.name;
   document.querySelector(".total strong").textContent = look.total;
+  grid.classList.toggle("four-up", look.items.length === 4);
   grid.innerHTML = look.items.map((item, itemIndex) => `
-    <article class="product-card" data-category="${item[4]}" data-retailer="${item[0]}">
+    <article class="product-card" data-category="${item[4]}" data-retailer="${item[0].includes("ASOS") ? "ASOS" : item[0]}">
       <button class="heart" type="button" aria-label="Save ${item[1]}">
         <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1.1-1.1a5.5 5.5 0 0 0-7.8 7.8l1.1 1.1L12 21l7.7-7.5 1.1-1.1a5.5 5.5 0 0 0 0-7.8z"></path></svg>
       </button>
-      <div class="product-shot ${item[3]}"><img src="${look.image}" alt="${item[1]}" /></div>
+      <div class="product-shot ${item[3]}"><img src="${item[6] || look.image}" alt="${item[1]}" /></div>
       <div class="product-info">
         <span class="brand-name">${item[0]}</span><span class="live-status">Available</span>
         <h4>${item[1]}</h4>
+        ${item[7] ? `<span class="match-label">${item[7]}</span>` : ""}
         <div class="price-row"><strong>${item[2]}</strong><a href="${item[5]}" target="_blank" rel="noopener noreferrer">Shop now ↗</a></div>
       </div>
     </article>
@@ -88,6 +88,9 @@ function renderCharacter(key) {
   reference.alt = character.referenceAlt;
   document.querySelector(".reference-caption h3").textContent = character.brief;
   document.querySelector(".reference-caption > span").textContent = character.briefCopy;
+  const sourceLink = document.querySelector(".scene-source");
+  sourceLink.hidden = !character.sourceUrl;
+  if (character.sourceUrl) sourceLink.href = character.sourceUrl;
   renderLook(character.look);
   resetFilters();
 }
@@ -131,7 +134,7 @@ document.querySelector("#style-search").addEventListener("submit", (event) => {
     overlay.hidden = true;
     renderCharacter(match);
     document.querySelector("#results").scrollIntoView({ behavior: "smooth" });
-    showToast(`6 live products matched to ${characters[match].title}.`);
+    showToast(`${characters[match].look.items.length} live products matched to ${characters[match].title}.`);
   }, 2200);
 });
 
