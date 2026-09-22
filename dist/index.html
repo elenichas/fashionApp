@@ -10,7 +10,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Instrument+Serif:ital@0;1&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet" />
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%231e2c26'/%3E%3Cpath d='M18 22h28l-4 27H22z' fill='%23e64b2f'/%3E%3Cpath d='M25 24c0-10 14-10 14 0' fill='none' stroke='%23f4f0e8' stroke-width='4'/%3E%3C/svg%3E" />
-    <link rel="stylesheet" href="./styles.css?v=4" />
+    <link rel="stylesheet" href="./styles.css?v=6" />
   </head>
   <body>
     <header class="topbar">
@@ -109,6 +109,13 @@
               <div class="total"><span>Whole look</span><strong>£210.48</strong></div>
             </div>
             <div class="product-grid" id="product-grid"></div>
+            <section class="alternatives" aria-labelledby="alternatives-title">
+              <div class="alternatives-head">
+                <div><span class="mono">SWAP THE HERO PIECE</span><h3 id="alternatives-title">More tartan skirts</h3></div>
+                <p id="alternatives-copy">Three current options, from closest scene match to a softer colour variation.</p>
+              </div>
+              <div class="alternatives-grid" id="alternatives-grid"></div>
+            </section>
             <div class="panel-footer">
               <span><i></i> Availability checked 22 Sep 2026</span>
               <span class="price-note">Prices and stock can change at the retailer</span>
@@ -129,6 +136,6 @@
     </div>
 
     <div class="toast" id="toast" role="status" aria-live="polite"></div>
-    <script src="./app.js?v=4"></script>
+    <script src="./app.js?v=6"></script>
   </body>
 </html>

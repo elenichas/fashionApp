@@ -126,6 +126,23 @@ h2 { font-family: "Instrument Serif", serif; font-size: clamp(2.6rem, 5vw, 4.4re
 .live-status { display: inline-flex; align-items: center; gap: 5px; color: #40734c; font: 500 .62rem "DM Mono", monospace; text-transform: uppercase; letter-spacing: .05em; margin-left: 7px; }
 .live-status::before { content: ""; width: 6px; height: 6px; border-radius: 50%; background: #4c8b5c; }
 
+.alternatives { border-top: 1px solid var(--line); background: #f6f3ec; padding: 24px; }
+.alternatives-head { display: grid; grid-template-columns: 1fr minmax(220px, .8fr); gap: 24px; align-items: end; margin-bottom: 17px; }
+.alternatives-head h3 { margin: 5px 0 0; font-family: "Instrument Serif", serif; font-size: 1.8rem; font-weight: 400; }
+.alternatives-head p { margin: 0; color: var(--muted); font-size: .75rem; line-height: 1.5; }
+.alternatives-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
+.alternative-card { min-width: 0; border: 1px solid var(--line); background: white; }
+.alternative-image { height: 145px; display: block; position: relative; overflow: hidden; background: #efeeeb; }
+.alternative-image img { width: 100%; height: 100%; object-fit: contain; display: block; transition: transform .25s ease; }
+.alternative-card:hover .alternative-image img { transform: scale(1.025); }
+.alternative-image span { position: absolute; left: 8px; bottom: 8px; padding: 5px 7px; background: rgba(251,250,246,.92); color: var(--orange); font: 500 .55rem "DM Mono", monospace; text-transform: uppercase; letter-spacing: .04em; }
+.alternative-info { padding: 11px 12px 12px; }
+.alternative-info > span { color: var(--muted); text-transform: uppercase; font-size: .6rem; letter-spacing: .09em; }
+.alternative-info h4 { min-height: 2.5em; margin: 5px 0 10px; font-size: .76rem; line-height: 1.25; font-weight: 600; }
+.alternative-info div { display: flex; justify-content: space-between; align-items: center; gap: 8px; }
+.alternative-info strong { font: 500 .78rem "DM Mono", monospace; }
+.alternative-info a { color: var(--ink); font-size: .66rem; font-weight: 700; text-underline-offset: 3px; }
+
 .loading-overlay { position: fixed; inset: 0; background: rgba(23,33,29,.76); backdrop-filter: blur(6px); z-index: 50; display: grid; place-items: center; padding: 20px; }
 .loading-overlay[hidden] { display: none; }
 .loading-card { width: min(500px, 100%); background: var(--cream); text-align: center; padding: 48px; box-shadow: 12px 12px 0 var(--orange); }
@@ -172,6 +189,11 @@ h2 { font-family: "Instrument Serif", serif; font-size: clamp(2.6rem, 5vw, 4.4re
   .product-shot { height: 155px; }
   .shop-panel-head { padding: 18px; }
   .panel-footer { align-items: flex-start; flex-direction: column; justify-content: center; gap: 8px; padding-block: 12px; }
+  .alternatives { padding: 18px; }
+  .alternatives-head { grid-template-columns: 1fr; gap: 7px; }
+  .alternatives-grid { grid-template-columns: 1fr; }
+  .alternative-card { display: grid; grid-template-columns: 120px 1fr; }
+  .alternative-image { height: 140px; }
   .price-note { text-align: left; }
   .loading-card { padding: 34px 22px; }
 }

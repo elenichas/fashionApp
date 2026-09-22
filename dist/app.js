@@ -1,13 +1,22 @@
 const characters = {
   rachel: {
     title: "Rachel Green, the tartan mini",
-    copy: "An official episode scene matched to four genuine products available from UK retailers now.",
+    copy: "An official episode scene matched to four genuine products, plus three live alternatives for the hero skirt.",
     signals: ["Cream roll-neck", "Tartan mini", "Knee-high socks", "Flat loafers", "’90s prep"],
     referenceImage: "https://i.ytimg.com/vi/4c8ORaaVuIw/maxresdefault.jpg",
     referenceAlt: "Jennifer Aniston as Rachel Green wearing a cream roll-neck, tartan mini skirt and white knee-high socks in Friends",
     brief: "The monkey-search tartan look",
     briefCopy: "Season 1, Episode 19 — The One Where the Monkey Gets Away",
     sourceUrl: "https://www.youtube.com/watch?v=4c8ORaaVuIw",
+    alternatives: {
+      title: "More tartan skirts",
+      copy: "Three current options, from closest scene match to a softer colour variation.",
+      items: [
+        ["Nobody's Child", "Black and red tartan pleated mini skirt", "£55.00", "https://www.nobodyschild.com/products/vincent-skirt-26000148005", "https://cdn.shopify.com/s/files/1/0640/7005/8155/files/NC_WEB_26000148005_27.jpg?v=1786376835", "Best overall alternative"],
+        ["Argos", "Dark red pleated tartan check mini skirt", "£25.00", "https://www.argos.co.uk/product/tuc147877659", "https://media.4rgos.it/s/Argos/tuc147877659_R_SET?$Main768$&w=620&h=620", "Best budget alternative"],
+        ["Nobody's Child", "Green tartan pleated mini skirt", "£79.00", "https://www.nobodyschild.com/products/twiggy-pleated-mini-skirt-2616914001", "https://cdn.shopify.com/s/files/1/0640/7005/8155/files/2616914001_384310d7-3400-4567-8c93-60b9c2a4cd19.jpg?v=1787922555", "Same silhouette, softer palette"]
+      ]
+    },
     look: {
       number: "REAL SCENE · LIVE PRODUCTS",
       name: "Shop the scene",
@@ -23,13 +32,22 @@ const characters = {
   },
   susie: {
     title: "Susie Glass, the burgundy suit",
-    copy: "An official scene still matched to four genuine products available from UK retailers now.",
+    copy: "An official scene still matched to four genuine products, plus three live alternatives for the hero blazer.",
     signals: ["Burgundy velvet", "Strong shoulders", "Tonal dressing", "Layered gold", "Power tailoring"],
     referenceImage: "https://dnm.nflximg.net/api/v6/BvVbc2Wxr2w6QuoANoSpJKEIWjQ/AAAAQU4v_NFz4bEJIt1vaulZDOQ-JQGgEQqrFjuhEpYJysylWmnermZEd0fVHDG_S46rWnTfWWBXZDyfwYuMCfVT24v88QnzdhasatloFZmXl33LwZjUcxBl-olVVOwbXKF0QDehu7dKlV71Y3N2yH6EblkZG40.jpg?r=a71",
     referenceAlt: "Kaya Scodelario as Susie Glass wearing a burgundy velvet suit in The Gentlemen",
     brief: "Burgundy velvet authority",
     briefCopy: "Season 1 scene — Susie questions a guest in an ornate drawing room",
     sourceUrl: "https://www.netflix.com/tudum/articles/the-gentlemen-season-1-ending-explained",
+    alternatives: {
+      title: "More burgundy blazers",
+      copy: "Three current tailoring options with different takes on Susie’s colour and authority.",
+      items: [
+        ["Mango at ASOS", "Iguana tie-waist tailored blazer in maroon", "£69.99", "https://www.asos.com/mango/mango-iguana-tie-waist-tailored-blazer-co-ord-in-maroon/prd/211434700", "https://images.asos-media.com/products/mango-iguana-tie-waist-tailored-blazer-co-ord-in-maroon/211434700-1-maroon?wid=420&fit=constrain", "Closest cinched tailoring"],
+        ["ASOS DESIGN", "Slash-neck cocoon blazer in burgundy", "£58.50", "https://www.asos.com/asos-design/asos-design-slash-neck-cocoon-blazer-in-burgundy/prd/210443344", "https://images.asos-media.com/products/asos-design-slash-neck-cocoon-blazer-in-burgundy/210443344-1-burg?wid=420&fit=constrain", "Best statement shoulder"],
+        ["ASOS DESIGN", "Tailored relaxed blazer in red", "£35.00", "https://www.asos.com/asos-design/asos-design-tailored-relaxed-blazer-in-red/prd/210847325", "https://images.asos-media.com/products/asos-design-tailored-relaxed-blazer-in-red/210847325-1-red?wid=420&fit=constrain", "Best budget tailoring"]
+      ]
+    },
     look: {
       number: "REAL SCENE · LIVE PRODUCTS",
       name: "Shop the scene",
@@ -77,6 +95,24 @@ function renderLook(look) {
   `).join("");
 }
 
+function renderAlternatives(alternatives) {
+  document.querySelector("#alternatives-title").textContent = alternatives.title;
+  document.querySelector("#alternatives-copy").textContent = alternatives.copy;
+  document.querySelector("#alternatives-grid").innerHTML = alternatives.items.map(item => `
+    <article class="alternative-card">
+      <a class="alternative-image" href="${item[3]}" target="_blank" rel="noopener noreferrer">
+        <img src="${item[4]}" alt="${item[1]}" />
+        <span>${item[5]}</span>
+      </a>
+      <div class="alternative-info">
+        <span>${item[0]}</span>
+        <h4>${item[1]}</h4>
+        <div><strong>${item[2]}</strong><a href="${item[3]}" target="_blank" rel="noopener noreferrer">View item ↗</a></div>
+      </div>
+    </article>
+  `).join("");
+}
+
 function renderCharacter(key) {
   currentCharacter = key;
   const character = characters[key];
@@ -92,6 +128,7 @@ function renderCharacter(key) {
   sourceLink.hidden = !character.sourceUrl;
   if (character.sourceUrl) sourceLink.href = character.sourceUrl;
   renderLook(character.look);
+  renderAlternatives(character.alternatives);
   resetFilters();
 }
 
