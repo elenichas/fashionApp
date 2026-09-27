@@ -1,0 +1,135 @@
+:root {
+  --ink: #17211d;
+  --forest: #1e2c26;
+  --cream: #f4f0e8;
+  --paper: #fbfaf6;
+  --orange: #e64b2f;
+  --line: #d9d5ca;
+  --muted: #6a6d67;
+  --green: #7ba68a;
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { margin: 0; color: var(--ink); background: var(--cream); font-family: "Manrope", sans-serif; }
+button, input { font: inherit; }
+button, a { -webkit-tap-highlight-color: transparent; }
+
+.lab-topbar {
+  height: 72px; padding: 0 34px; display: grid; grid-template-columns: 1fr auto 1fr; align-items: center;
+  color: var(--paper); background: var(--forest); border-bottom: 1px solid rgba(255,255,255,.14);
+}
+.lab-brand { display: inline-flex; align-items: center; gap: 10px; width: max-content; color: inherit; text-decoration: none; font-weight: 700; }
+.lab-brand span { display: grid; place-items: center; width: 29px; height: 29px; color: var(--forest); background: var(--orange); font-family: "Instrument Serif", serif; font-size: 1.35rem; }
+.route-label { display: flex; align-items: center; gap: 9px; font: 500 .7rem "DM Mono", monospace; text-transform: uppercase; letter-spacing: .1em; }
+.route-label i, .analysis-status i { width: 7px; height: 7px; border-radius: 50%; background: var(--orange); box-shadow: 0 0 0 5px rgba(230,75,47,.12); }
+.back-link { justify-self: end; color: inherit; font-size: .78rem; font-weight: 700; text-underline-offset: 4px; }
+
+.lab-shell { width: min(1420px, 100%); margin: 0 auto; padding: 42px 34px 60px; }
+.lab-heading { display: grid; grid-template-columns: 1fr minmax(320px, .56fr); gap: 50px; align-items: end; margin-bottom: 34px; }
+.kicker, .panel-title p, .control-label { margin: 0; color: var(--orange); font: 500 .66rem "DM Mono", monospace; text-transform: uppercase; letter-spacing: .1em; }
+.lab-heading h1 { margin: 7px 0 0; font: 400 clamp(3.5rem, 6vw, 6.6rem)/.78 "Instrument Serif", serif; letter-spacing: -.04em; }
+.lab-heading h1 em { color: var(--orange); font-weight: 400; }
+.lab-intro { max-width: 600px; margin: 0; color: var(--muted); font-size: .9rem; line-height: 1.7; }
+
+.lab-controls { display: grid; grid-template-columns: 1.75fr repeat(3, minmax(135px, .65fr)) auto; gap: 1px; margin-bottom: 14px; background: var(--line); border: 1px solid var(--line); }
+.preset-control, .weight-control { min-height: 92px; padding: 17px 18px; background: var(--paper); }
+.segmented { display: flex; gap: 6px; margin-top: 12px; }
+.segmented button { padding: 8px 10px; border: 1px solid var(--line); color: var(--muted); background: transparent; cursor: pointer; font-size: .7rem; font-weight: 700; }
+.segmented button.active { color: var(--paper); background: var(--forest); border-color: var(--forest); }
+.weight-control label { display: flex; justify-content: space-between; gap: 10px; font-size: .7rem; font-weight: 700; }
+.weight-control output { color: var(--orange); font-family: "DM Mono", monospace; }
+.weight-control input { width: 100%; margin: 20px 0 0; accent-color: var(--orange); cursor: pointer; }
+.run-button { min-width: 174px; border: 0; padding: 18px 22px; color: white; background: var(--orange); cursor: pointer; font-size: .74rem; font-weight: 800; text-transform: uppercase; letter-spacing: .05em; }
+.run-button span { margin-left: 8px; font-size: 1.1rem; }
+.run-button:disabled { cursor: wait; opacity: .7; }
+
+.lab-workspace { display: grid; grid-template-columns: minmax(300px, .74fr) minmax(580px, 1.65fr); gap: 14px; align-items: start; }
+.reference-panel, .ranking-panel, .method-panel { background: var(--paper); border: 1px solid var(--line); }
+.reference-panel { padding: 22px; }
+.panel-title { display: flex; align-items: flex-start; gap: 12px; }
+.panel-title > span { display: grid; place-items: center; width: 27px; height: 27px; flex: none; color: white; background: var(--forest); font: 500 .58rem "DM Mono", monospace; }
+.panel-title h2 { margin: 4px 0 0; font: 400 1.45rem/1.1 "Instrument Serif", serif; }
+.scene-frame { position: relative; height: 380px; margin-top: 18px; overflow: hidden; background: #d9d8d2; }
+.scene-frame img { width: 100%; height: 100%; display: block; object-fit: cover; }
+.crop-box { position: absolute; border: 2px solid var(--orange); background: rgba(230,75,47,.13); box-shadow: 0 0 0 999px rgba(23,33,29,.22); pointer-events: none; }
+.crop-box span { position: absolute; left: -2px; top: -24px; padding: 4px 7px; color: white; background: var(--orange); font: 500 .55rem "DM Mono", monospace; text-transform: uppercase; white-space: nowrap; }
+.reference-source { display: flex; justify-content: space-between; gap: 12px; margin-top: 10px; color: var(--muted); font-size: .65rem; }
+.reference-source a { color: var(--ink); font-weight: 700; text-underline-offset: 3px; }
+.upload-control { display: grid; grid-template-columns: 1fr auto; gap: 4px 12px; margin-top: 19px; padding: 14px; border: 1px dashed #aaa69d; cursor: pointer; }
+.upload-control span { color: var(--muted); font-size: .66rem; text-transform: uppercase; letter-spacing: .06em; }
+.upload-control strong { grid-row: 1 / 3; grid-column: 2; align-self: center; color: var(--orange); font-size: .72rem; text-decoration: underline; text-underline-offset: 3px; }
+.upload-control small { font-size: .62rem; line-height: 1.45; }
+
+.ranking-panel { min-height: 575px; padding: 22px; }
+.ranking-head { display: flex; justify-content: space-between; align-items: center; gap: 20px; }
+.analysis-status { display: flex; align-items: center; gap: 9px; color: var(--muted); font: 500 .63rem "DM Mono", monospace; text-transform: uppercase; letter-spacing: .04em; }
+.analysis-status.ready { color: #356a45; }
+.analysis-status.ready i { background: #4d9564; box-shadow: 0 0 0 5px rgba(77,149,100,.12); }
+.analysis-status.working i { animation: pulse 1s infinite; }
+.formula { margin: 18px 0 13px; padding: 10px 13px; color: var(--paper); background: var(--forest); font: 400 .68rem "DM Mono", monospace; }
+.ranking-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
+.match-card { position: relative; display: grid; grid-template-columns: 132px minmax(0, 1fr); min-height: 205px; overflow: hidden; border: 1px solid var(--line); background: white; }
+.rank-number { position: absolute; z-index: 2; top: 8px; left: 8px; display: grid; place-items: center; width: 28px; height: 28px; color: white; background: var(--forest); font: 500 .62rem "DM Mono", monospace; }
+.product-image { position: relative; min-width: 0; background: #f0efeb; }
+.product-image img { width: 100%; height: 100%; display: block; object-fit: contain; }
+.score-badge { position: absolute; right: 8px; bottom: 8px; padding: 7px 8px; color: white; background: var(--orange); font: 500 .66rem "DM Mono", monospace; }
+.match-info { min-width: 0; padding: 14px 13px 12px; }
+.match-info .brand { color: var(--muted); font: 500 .57rem "DM Mono", monospace; text-transform: uppercase; letter-spacing: .06em; }
+.match-info h3 { min-height: 2.6em; margin: 5px 0 7px; font-size: .75rem; line-height: 1.3; }
+.price-row { display: flex; justify-content: space-between; align-items: center; gap: 8px; margin-bottom: 10px; }
+.price-row strong { font: 500 .72rem "DM Mono", monospace; }
+.price-row a { color: var(--ink); font-size: .62rem; font-weight: 800; text-underline-offset: 3px; }
+.metric { display: grid; grid-template-columns: 46px 1fr 28px; align-items: center; gap: 5px; margin: 6px 0; color: var(--muted); font: 500 .53rem "DM Mono", monospace; text-transform: uppercase; }
+.metric b { height: 4px; overflow: hidden; background: #e5e2da; }
+.metric b i { display: block; height: 100%; background: var(--orange); }
+.metric em { color: var(--ink); font-style: normal; text-align: right; }
+.data-mode { display: inline-flex; align-items: center; gap: 5px; margin-top: 4px; color: #437052; font: 500 .51rem "DM Mono", monospace; text-transform: uppercase; }
+.data-mode::before { content: ""; width: 5px; height: 5px; border-radius: 50%; background: currentColor; }
+.data-mode.fallback { color: #8a6840; }
+.empty-card { grid-column: 1 / -1; padding: 60px 20px; text-align: center; color: var(--muted); }
+
+.method-panel { display: grid; grid-template-columns: .7fr 1.5fr; gap: 30px 60px; margin-top: 14px; padding: 30px; }
+.method-panel h2 { margin: 7px 0 0; font: 400 2.3rem/1 "Instrument Serif", serif; }
+.method-panel ol { display: grid; grid-template-columns: repeat(4, 1fr); gap: 22px; margin: 0; padding: 0; list-style: none; }
+.method-panel li { display: flex; gap: 9px; }
+.method-panel li > span { display: grid; place-items: center; width: 25px; height: 25px; flex: none; border: 1px solid var(--ink); font: 500 .56rem "DM Mono", monospace; }
+.method-panel strong { font-size: .72rem; }
+.method-panel li p { margin: 4px 0 0; color: var(--muted); font-size: .64rem; line-height: 1.5; }
+.method-note { grid-column: 1 / -1; margin: 0; padding-top: 18px; border-top: 1px solid var(--line); color: var(--muted); font-size: .68rem; line-height: 1.6; }
+
+@keyframes pulse { 50% { opacity: .35; transform: scale(.7); } }
+
+@media (max-width: 1080px) {
+  .lab-controls { grid-template-columns: 1.5fr repeat(3, 1fr); }
+  .run-button { grid-column: 1 / -1; min-height: 54px; }
+  .lab-workspace { grid-template-columns: 1fr; }
+  .reference-panel { display: grid; grid-template-columns: .72fr 1fr; gap: 0 22px; }
+  .reference-panel .panel-title, .reference-panel .scene-frame { grid-row: auto; }
+  .reference-panel .scene-frame { grid-row: 1 / 5; grid-column: 2; margin-top: 0; }
+  .reference-source, .upload-control { grid-column: 1; }
+  .scene-frame { height: 340px; }
+}
+
+@media (max-width: 720px) {
+  .lab-topbar { height: 64px; padding: 0 18px; grid-template-columns: 1fr auto; }
+  .route-label { display: none; }
+  .back-link { font-size: .68rem; }
+  .lab-shell { padding: 30px 16px 42px; }
+  .lab-heading { grid-template-columns: 1fr; gap: 20px; }
+  .lab-heading h1 { font-size: 4rem; }
+  .lab-controls { grid-template-columns: 1fr; }
+  .preset-control, .weight-control { min-height: 82px; }
+  .segmented { display: grid; grid-template-columns: 1fr; }
+  .reference-panel { display: block; }
+  .reference-panel .scene-frame { margin-top: 18px; }
+  .scene-frame { height: 390px; }
+  .ranking-head { align-items: flex-start; flex-direction: column; }
+  .ranking-grid { grid-template-columns: 1fr; }
+  .match-card { grid-template-columns: 125px 1fr; }
+  .method-panel { grid-template-columns: 1fr; gap: 25px; padding: 23px; }
+  .method-panel ol { grid-template-columns: 1fr; gap: 15px; }
+  .method-note { grid-column: 1; }
+}
+
+@media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation-duration: .01ms !important; transition-duration: .01ms !important; } }

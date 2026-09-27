@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#17211d" />
+    <meta name="description" content="A transparent browser-based visual similarity experiment for matching screen outfits to real products." />
+    <title>Visual Matching Lab — Scene Stealer</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Instrument+Serif:ital@0;1&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%231e2c26'/%3E%3Cpath d='M18 22h28l-4 27H22z' fill='%23e64b2f'/%3E%3Cpath d='M25 24c0-10 14-10 14 0' fill='none' stroke='%23f4f0e8' stroke-width='4'/%3E%3C/svg%3E" />
+    <link rel="stylesheet" href="./experiment.css?v=1" />
+  </head>
+  <body>
+    <header class="lab-topbar">
+      <a class="lab-brand" href="./index.html"><span aria-hidden="true">S</span> Scene Stealer</a>
+      <div class="route-label"><i></i> Visual Matching Lab</div>
+      <a class="back-link" href="./index.html">Polished demo ↗</a>
+    </header>
+
+    <main class="lab-shell">
+      <section class="lab-heading">
+        <div>
+          <p class="kicker">Experimental route · actual scoring</p>
+          <h1>See the matcher<br /><em>think.</em></h1>
+        </div>
+        <p class="lab-intro">This route ranks real products using image colour, texture and declared garment attributes. It is deliberately transparent: every score can be inspected and reweighted.</p>
+      </section>
+
+      <section class="lab-controls" aria-label="Experiment controls">
+        <div class="preset-control">
+          <span class="control-label">Reference look</span>
+          <div class="segmented" role="group" aria-label="Reference look">
+            <button class="active" type="button" data-preset="rachel">Rachel’s tartan skirt</button>
+            <button type="button" data-preset="susie">Susie’s burgundy blazer</button>
+          </div>
+        </div>
+        <div class="weight-control">
+          <label for="colour-weight"><span>Colour</span><output id="colour-output">55%</output></label>
+          <input id="colour-weight" type="range" min="0" max="100" value="55" />
+        </div>
+        <div class="weight-control">
+          <label for="texture-weight"><span>Texture</span><output id="texture-output">20%</output></label>
+          <input id="texture-weight" type="range" min="0" max="100" value="20" />
+        </div>
+        <div class="weight-control">
+          <label for="style-weight"><span>Style tags</span><output id="style-output">25%</output></label>
+          <input id="style-weight" type="range" min="0" max="100" value="25" />
+        </div>
+        <button id="run-match" class="run-button" type="button">Run visual match <span>→</span></button>
+      </section>
+
+      <section class="lab-workspace">
+        <article class="reference-panel">
+          <div class="panel-title"><span>01</span><div><p>Input</p><h2 id="reference-title">Rachel’s tartan mini</h2></div></div>
+          <div class="scene-frame">
+            <img id="reference-image" crossorigin="anonymous" alt="Reference scene used by the matching experiment" />
+            <div id="crop-box" class="crop-box"><span>Analysed region</span></div>
+          </div>
+          <div class="reference-source">
+            <span id="reference-caption">Official Friends scene · Season 1</span>
+            <a id="reference-link" href="#" target="_blank" rel="noopener noreferrer">Source ↗</a>
+          </div>
+          <label class="upload-control" for="reference-upload">
+            <span>Use your own image</span>
+            <strong>Choose screenshot</strong>
+            <small>Processed locally in this browser—never uploaded.</small>
+          </label>
+          <input id="reference-upload" type="file" accept="image/*" hidden />
+        </article>
+
+        <section class="ranking-panel" aria-labelledby="ranking-title">
+          <div class="ranking-head">
+            <div class="panel-title"><span>02</span><div><p>Output</p><h2 id="ranking-title">Ranked product matches</h2></div></div>
+            <div id="analysis-status" class="analysis-status"><i></i> Preparing pixels</div>
+          </div>
+          <div id="formula" class="formula" aria-live="polite">Score = 55% colour + 20% texture + 25% style tags</div>
+          <div id="ranking-grid" class="ranking-grid" aria-live="polite"></div>
+        </section>
+      </section>
+
+      <section class="method-panel" aria-labelledby="method-title">
+        <div><p class="kicker">What is real here?</p><h2 id="method-title">A small, inspectable retrieval algorithm.</h2></div>
+        <ol>
+          <li><span>1</span><div><strong>Read pixels</strong><p>Build a hue histogram and average RGB tone from the selected garment region.</p></div></li>
+          <li><span>2</span><div><strong>Measure texture</strong><p>Estimate edge density from neighbouring luminance changes.</p></div></li>
+          <li><span>3</span><div><strong>Compare meaning</strong><p>Calculate Jaccard similarity across explicit tags such as tartan, pleated or velvet.</p></div></li>
+          <li><span>4</span><div><strong>Rank candidates</strong><p>Normalise the chosen weights and sort by the combined score—entirely in the browser.</p></div></li>
+        </ol>
+        <p class="method-note">This is not a trained fashion model. Pixel analysis runs live when an image host permits it; otherwise the card is clearly marked as using its stored visual descriptors. The ranking formula remains genuine and reproducible.</p>
+      </section>
+    </main>
+    <canvas id="analysis-canvas" width="96" height="96" hidden></canvas>
+    <script src="./experiment.js?v=1"></script>
+  </body>
+</html>
